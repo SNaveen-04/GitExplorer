@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link,NavLink } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { Sling as Hamburger } from 'hamburger-react'
 
@@ -25,13 +25,15 @@ const Navbar = () => {
           <Hamburger toggled={isOpen} toggle={setIsOpen} size={17}/>
         </span>
       </div>
-      <ul onClick={handleOnClick} className={`max-md:absolute max-md:w-full ${top} bg-slate-100 flex flex-col md:flex-row items-center justify-center p-4`}>
-        <Link to='/repos'>
+      <ul onClick={handleOnClick} className={`max-md:absolute max-md:w-full ${top} bg-slate-100 flex flex-col md:flex-row items-center justify-center p-4 max-md:border-t max-md:border-b border-zinc-300`}>
+        <NavLink 
+        to='/repos' 
+        className={({isActive})=> isActive ? "max-md:bg-slate-200 w-full text-center rounded-md" : ""}>
           <li className={links}>Repos</li>
-        </Link>
-        <Link to='/users'>
+        </NavLink>
+        <NavLink to='/users' className={({isActive})=> isActive ? "max-md:bg-slate-200 w-full text-center rounded-md" : ""}>
           <li className={links}>Users</li>
-        </Link>
+        </NavLink>
       </ul>
     </nav>
   )

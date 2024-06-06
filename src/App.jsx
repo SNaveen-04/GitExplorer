@@ -11,7 +11,7 @@ const App = () => {
     <div className='bg-slate-100'>
       <Routes>
         <Route path='/' element={<Root/>}>
-            <Route path='/' element={<Repos setRepo={setRepo}/>}/>
+            <Route exact path='/' element={<Repos setRepo={setRepo}/>}/>
             <Route path='/repos' element={<Repos setRepo={setRepo}/>}/>
             <Route path='/repo/:reponame' element={<Repo repo={repo} setRepo={setRepo}/>}/>
             <Route path='/users' element={<h1>Users</h1>}/>
